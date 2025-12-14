@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sambhab Shree Sahoo | Election 2025</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f9ff, #fffbeb);
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* Dynamic Election Text */
+    .election-dynamic {
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      color: #16a34a;
+      margin: 40px 0;
+      animation: pulseColor 2s infinite alternate, bounce 2s infinite alternate, rotateText 5s linear infinite;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes pulseColor {
+      0% { color: #16a34a; }
+      50% { color: #22c55e; }
+      100% { color: #16a34a; }
+    }
+
+    @keyframes rotateText {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 20px;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
+      object-fit: cover;
+      animation: float 4s ease-in-out infinite, rotateImage 8s linear infinite, pulse 3s infinite;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    @keyframes rotateImage {
+      0% { transform: rotate(0deg) translateY(0); }
+      50% { transform: rotate(10deg) translateY(-15px); }
+      100% { transform: rotate(0deg) translateY(0); }
+    }
+
+    .hero h1 { margin: 0; font-size: 48px; font-weight: 700; animation: slideUp 1s ease forwards, colorShift 6s infinite alternate; }
+    .hero h3 { margin: 10px 0 5px; font-weight: 400; animation: slideUp 1.2s ease forwards; }
+    .hero p.position { margin-top: 0; font-size: 20px; font-weight: 600; animation: slideUp 1.4s ease forwards, pulse 3s infinite; letter-spacing: 1px; }
+
+    @keyframes colorShift {
+      0% { color: #fff; }
+      50% { color: #ffeb3b; }
+      100% { color: #fff; }
+    }
+
+    .social-links img { width: 40px; height: 40px; margin: 0 12px; filter: invert(1); transition: transform 0.3s, filter 0.3s; }
+    .social-links img:hover { transform: scale(1.5) rotate(20deg); filter: invert(0); }
+
+    .section { max-width: 950px; margin: 50px auto; padding: 0 20px; }
+
+    .box {
+      background: linear-gradient(135deg, #fef3c7, #fcd34d);
+      border-radius: 25px;
+      padding: 35px;
+      margin-bottom: 30px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: popUp 0.8s forwards;
+      transition: transform 0.3s;
+    }
+
+    .box:hover { transform: translateY(-5px) scale(1.05) rotate(-1deg); }
+
+    .schedule {
+      position: relative;
+      padding: 60px 0;
+    }
+
+    .schedule-item {
+      width: 42%;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      padding: 25px;
+      border-radius: 25px;
+      text-align: center;
+      margin: 35px 0;
+      position: relative;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+      transform: translateX(0);
+      transition: transform 0.4s, background 0.5s;
+      animation: slideIn 1s ease forwards;
+    }
+
+    .schedule-item:nth-child(odd) { margin-left: 0; transform: translateX(-10px); }
+    .schedule-item:nth-child(even) { margin-left: 55%; transform: translateX(10px); }
+    .schedule-item:hover { transform: translateY(-10px) scale(1.07) rotate(1deg); background: linear-gradient(135deg, #16a34a, #22c55e); }
+
+    .schedule::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 6px;
+      background: #16a34a;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .faq-item { background: #fff; padding: 25px; border-radius: 25px; margin-bottom: 20px; box-shadow: 0 12px 25px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; }
+    .faq-item:hover { transform: scale(1.05) rotate(-1deg); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+
+    .thankyou { text-align: center; background: linear-gradient(135deg, #16a34a, #22c55e); color: #fff; padding: 70px 25px; border-radius: 35px; margin: 60px auto; max-width: 700px; box-shadow: 0 18px 60px rgba(0,0,0,0.3); animation: popUp 1s ease forwards, pulse 3s infinite; }
+    .thankyou img { width: 220px; height: 220px; border-radius: 25px; margin-top: 20px; object-fit: cover; border: 4px solid #fff; animation: popUp 1s ease forwards, float 3s infinite, rotateImage 6s linear infinite; }
+    .thankyou a { display: inline-block; margin-top: 25px; padding: 16px 35px; background: #fff; color: #16a34a; font-weight: 700; border-radius: 25px; text-decoration: none; transition: transform 0.3s; }
+    .thankyou a:hover { transform: scale(1.15) rotate(-2deg); }
+
+    .cta { text-align: center; padding: 60px 25px; background: #facc15; font-size: 26px; font-weight: bold; color: #1f2937; border-radius: 40px; margin: 50px 20px; box-shadow: 0 12px 35px rgba(0,0,0,0.25); animation: bounce 1.8s infinite alternate, rotateCTA 8s linear infinite; }
+
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-15px);} }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 rgba(239,68,68,0.4); }
+      50% { transform: scale(1.15); box-shadow: 0 0 25px rgba(239,68,68,0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 0 rgba(239,68,68,0.4); }
+    }
+    @keyframes slideUp {0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+    @keyframes popUp {to{transform:translateY(0);opacity:1;}}
+    @keyframes slideIn {0%{opacity:0;transform:translateX(-50px);}100%{opacity:1;transform:translateX(0);}}
+    @keyframes rotateCTA {0%{transform:rotate(0deg);}50%{transform:rotate(1deg);}100%{transform:rotate(0deg);}}
+  </style>
+</head>
+<body>
+
+<div class="election-dynamic">Election 2025</div>
+
+<div class="hero">
+  <img src="https://img.sanishtech.com/u/cb1878063168373a307432eef34962f1.jpg" alt="Sambhab Shree Sahoo" />
+  <h1>Sambhab Shree Sahoo</h1>
+  <h3>Assistant General Secretary (AGS)</h3>
+  <p class="position">Victor Club</p>
+  <p>Leadership is about responsibility and support for every player.</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/sambhabshreesahoo-mba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="https://twitter.com/YOUR_TWITTER" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="X"></a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="box">
+    <h2>Why I Am Contesting</h2>
+    <p>I am standing for AGS to support every player and ensure fair opportunities for all.</p>
+  </div>
+
+  <div class="box">
+    <h2>My Commitments</h2>
+    <ul>
+      <li>Support all sports and athletes</li>
+      <li>Improve communication</li>
+      <li>Encourage new talent</li>
+      <li>Work honestly and transparently</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>Election & Campaign Schedule</h2>
+    <div style="text-align:center; margin:20px 0;">
+      <h3 style="font-size:26px; color:#b91c1c; animation:pulse 2s infinite;">🗳️ Voting Day (20 Dec 2025)</h3>
+      <div id="countdown" style="font-size:26px; font-weight:bold; letter-spacing:3px; padding:12px 20px; border-radius:15px; display:inline-block; animation:pulse 1.5s infinite;"></div>
+      <div style="max-width:420px; margin:14px auto 0; background:#fee2e2; border-radius:999px; overflow:hidden; height:10px;">
+        <div id="progress" style="height:100%; width:0%; background:#ef4444; transition:width 1s linear;"></div>
+      </div>
+    </div>
+    <div class="schedule">
+      <div class="schedule-item">15 Dec 2025 – Why I Stand: 2:00 PM, Auditorium</div>
+      <div class="schedule-item">15–19 Dec 2025 – Campaigning: Campus-wide</div>
+      <div class="schedule-item">20 Dec 2025 – Voting: 12:00 PM – 2:30 PM, Designated Classroom</div>
+      <div class="schedule-item">22 Dec 2025 – Vote Counting: 10:00 AM onwards</div>
+      <div class="schedule-item">23 Dec 2025 – Result: After 2:30 PM, Main Auditorium</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <strong>Why am I contesting?</strong><br>
+      To ensure fair opportunities and support for all athletes.
+    </div>
+    <div class="faq-item">
+      <strong>What changes can you expect?</strong><br>
+      Better communication, encouragement of new talent, and a united sports environment.
+    </div>
+    <div class="faq-item">
+      <strong>Why should you choose me?</strong><br>
+      Commitment, honesty, and dedication to all players.
+    </div>
+  </div>
+
+  <div class="thankyou">
+    <h2>Thank You for Supporting!</h2>
+    <p>Let us build a stronger, fitter, and more united sports family in our college.</p>
+    <img src="https://img.sanishtech.com/u/cb1878063168373a307432eef34962f1.jpg" alt="Poster">
+    <br>
+    <a href="https://img.sanishtech.com/u/cb1878063168373a307432eef34962f1.jpg" download="SambhabPoster.jpg">Download Poster</a>
+  </div>
+
+  <div class="cta">
+    Vote for Strength. Vote for Unity.<br>
+    Vote Sambhab Shree Sahoo, AGS – Victor Club
+  </div>
+</div>
+
+<footer>
+  Election 2025 • Student Election Campaign
+</footer>
+
+<script>
+  // Countdown Timer for Voting Day
+  const votingDate = new Date("December 20, 2025 12:00:00").getTime();
+
+  const startDate = new Date("December 15, 2025 00:00:00").getTime();
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = votingDate - now;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "🗳️ Voting is LIVE!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    const total = votingDate - startDate;
+    const elapsed = Math.max(0, total - distance);
+    const pct = Math.min(100, Math.floor((elapsed / total) * 100));
+    document.getElementById("progress").style.width = pct + "%";
+  }, 1000);
+</script>
+
+</body>
+</html>
